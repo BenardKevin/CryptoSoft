@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="projet_easy_save_v2.src.views.InitiateBackupView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:p="clr-namespace:projet_easy_save_v2.Properties"
+      d:DataContext="{d:DesignInstance}"
+      mc:Ignorable="d" 
+      Width="870" Height="610" Foreground="#FFD8D8D8">
+    <Grid>
+
+        <Border CornerRadius="10" Background="#2e325b" Margin="0,41,0,0">
+
+            <ListView Background="#2e325b" x:Name="BackupsListToQueue" ItemsSource="{Binding BackupStrategiesList}" Margin="0,10,0,295">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn Header="{x:Static p:InitiateBackupView.ListHeaderName}" Width="130" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="{x:Static p:InitiateBackupView.ListHeaderCreationDate}" Width="161" DisplayMemberBinding="{Binding CreationDate}" />
+                        <GridViewColumn Header="Type" Width="100" DisplayMemberBinding="{Binding TypeOfSave}" />
+                        <GridViewColumn Header="Source" Width="160" DisplayMemberBinding="{Binding SourceDirectory}" />
+                        <GridViewColumn Header="{x:Static p:InitiateBackupView.ListHeaderTarget}" Width="160" DisplayMemberBinding="{Binding TargetDirectory}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+        <TextBlock Margin="20,1,321,565" Text="{x:Static p:InitiateBackupView.Title}" FontFamily="Montserrat" FontSize="17" Width="auto"/>
+        <TextBlock Margin="178,3,39,582" Text="{x:Static p:InitiateBackupView.Description}"  FontSize="15"/>
+
+        <Border Background="#22223D" CornerRadius="5" Margin="20,380,472,24"/>
+        <ProgressBar Value="{Binding Ps.ProgressPercentage}" Height="Auto" Margin="20,380,472,198" BorderBrush="#FF703265">
+            <ProgressBar.Foreground>
+                <SolidColorBrush Color="#FFA145FF" Opacity="0.6"/>
+            </ProgressBar.Foreground>
+            <ProgressBar.Background>
+                <SolidColorBrush Color="#FFB368FF" Opacity="0.4"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <TextBlock FontSize="15" Text="{Binding Ps.ProgressPercentage, StringFormat='\{0\} %'}" Margin="184,385,640,200"/>
+        <Label x:Name="backupNameLabel" FontSize="15" Content="{Binding Ps.BackupName}" Margin="20,331,661,239"/>
+        <ScrollViewer Name="MyScrollViewer" Margin="20,420,472,29">
+            <TextBlock Text="{Binding Ps.CurrentFile}" Width="322"/>
+        </ScrollViewer>
+
+
+        <Grid Margin="431,457,314,28">
+            <Ellipse Fill="#2e325b"/>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#00000000"/>
+                        <GradientStop Offset="0.88" Color="#00000000"/>
+                        <GradientStop Offset="0.886" Color="#FF703265"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0.633" Color="#00000000"/>
+                        <GradientStop Offset="0.988" Color="#00000000"/>
+                        <GradientStop Offset="0.978" Color="#FFB368FF"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#00000000"/>
+                        <GradientStop Offset="0.88" Color="#00000000"/>
+                        <GradientStop Offset="1" Color="#80000000"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button x:Name="StartBackupButton" Style="{DynamicResource MaterialDesignFloatingActionLightButton}" HorizontalAlignment="Left" Margin="-2,0,-1,0" Content="{Binding StartButton_text}" VerticalAlignment="Top" Foreground="#FFCB59B6" FontFamily="Montserrat" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" Height="124" Width="128" Click="StartBackupButton_Click"/>
+        </Grid>
+
+        <Grid Margin="457,372,344,169">
+            <Ellipse Fill="#2e325b"/>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#00000000"/>
+                        <GradientStop Offset="0.88" Color="#00000000"/>
+                        <GradientStop Offset="0.886" Color="#FFCB59B6"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0.633" Color="#00000000"/>
+                        <GradientStop Offset="0.988" Color="#00000000"/>
+                        <GradientStop Offset="0.978" Color="#FFCB59B6"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0" Color="#00000000"/>
+                        <GradientStop Offset="0.88" Color="#00000000"/>
+                        <GradientStop Offset="1" Color="#80000000"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button x:Name="pauseButton" Content="Pause" Height="Auto" Click="pauseButton_Click" IsEnabled="{Binding EnableButtons}" Style="{DynamicResource MaterialDesignFloatingActionLightButton}" FontFamily="Montserrat" Foreground="#FFCB59B6" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        </Grid>
+
+        <Border Background="#22223D" CornerRadius="8" Margin="588,380,101,24">
+            <ListBox ItemsSource="{Binding InitiateBackupQueue}" Name="backupQueue" SelectionMode="Multiple" Margin="10,0,7,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+
+        <Button Content="{x:Static p:InitiateBackupView.AddButton}" HorizontalAlignment="Right" Width="70" Background="#FFCB59B6" Click="AddBackupToQueueButton_Click" BorderBrush="Transparent" FontSize="10" Foreground="#FFE6E6E6" Margin="0,387,15,191"/>
+        <Button Content="{x:Static p:InitiateBackupView.RemoveButton}" HorizontalAlignment="Right" Width="70" Click="RemoveBackupFromQueueButton_Click" BorderBrush="Transparent" FontSize="10" Foreground="#FFDADADA" Margin="0,446,15,132" Background="#FFB621FE"/>
+
+    </Grid>
+</UserControl>

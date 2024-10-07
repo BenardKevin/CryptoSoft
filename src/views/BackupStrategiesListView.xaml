@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="projet_easy_save_v2.src.views.BackupStrategiesListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:p="clr-namespace:projet_easy_save_v2.Properties"
+      xmlns:viewmodels="clr-namespace:projet_easy_save_v2.src.viewModels" 
+      d:DataContext="{d:DesignInstance Type=viewmodels:BackupStrategiesListViewModel}"
+      mc:Ignorable="d"
+      Foreground="White" Width="870" Height="610">
+
+    <Grid>
+
+        <Border CornerRadius="10" Background="#2e325b" Margin="0,100,0,0"/>
+
+        <TextBlock Margin="20,20,321,546" Text="{x:Static p:BackupStrategiesListView.Title}" FontFamily="Montserrat" FontSize="17" Width="auto"/>
+        <TextBlock Margin="41,50,-21,496" Text="{x:Static p:BackupStrategiesListView.Description}"  FontSize="15" Foreground="#FFD8D8D8"/>
+
+
+        <Button Width="auto" Height="30" HorizontalAlignment="Left" Margin="62,138,0,442" Content="{x:Static p:BackupStrategiesListView.EditButton}" Click="EditButton_Click" FontFamily="Montserrat" BorderBrush="{x:Null}" Background="#FFCB59B6"/>
+        <Button Width="auto" Margin="167,138,0,442" Height="30" HorizontalAlignment="Left" Content="{x:Static p:BackupStrategiesListView.DeleteButton}" Click="DeleteButton_Click" FontFamily="Montserrat" Background="#FFB621FE" BorderBrush="{x:Null}"/>
+
+
+        <ListView Name="backupsList" ItemsSource="{Binding BackupStrategiesList}" SelectionMode="Single" BorderBrush="{x:Null}" Background="#FFF3F9FF" Margin="20,203,33,30">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="{x:Static p:BackupStrategiesListView.ListHeaderName}" Width="auto" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="{x:Static p:BackupStrategiesListView.ListHeaderCreationDate}" Width="auto" DisplayMemberBinding="{Binding CreationDate}"/>
+                    <GridViewColumn Header="Type" Width="auto" DisplayMemberBinding="{Binding TypeOfSave}"/>
+                    <GridViewColumn Header="Source" Width="auto" DisplayMemberBinding="{Binding SourceDirectory}"/>
+                    <GridViewColumn Header="{x:Static p:BackupStrategiesListView.ListHeaderTarget}" Width="auto" DisplayMemberBinding="{Binding TargetDirectory}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+﻿{
+	"IdCounter": 11,
+	"Language": "English_EN",
+	"EncryptionIsEnabled": "False",
+	"FilesExtensionsToEncrypt": [".mp3",".txt",]
+}

@@ -1,0 +1,11 @@
+{
+  "Timestamp": "2020-12-18T12:59:31.502594+01:00",
+  "BackupConfigName": "backup_modified",
+  "BackupState": "COMPLETED",
+  "TotalFiles": 30,
+  "FilesTotalSize": 1351677270,
+  "FilesAlreadySaved": 63,
+  "TotalSizeNotSavedYetFiles": 0,
+  "SourceDirectory": "E:\\Demo\\backup2\\sku",
+  "TargetDirectory": "E:\\Demo\\backup2_finished\\sku"
+}

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="projet_easy_save_v2.src.views.CreateBackupStrategyView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:p="clr-namespace:projet_easy_save_v2.Properties" 
+      xmlns:viewmodels="clr-namespace:projet_easy_save_v2.src.viewModels" 
+      d:DataContext="{d:DesignInstance Type=viewmodels:CreateBackupStrategyViewModel}"
+      mc:Ignorable="d"
+      Foreground="#FFF0F0F0" Width="870" Height="610">
+
+    <Grid>
+
+        <Border CornerRadius="10" Background="#2e325b" Margin="0,100,0,0"/>
+
+        <TextBlock Margin="20,20,321,546" Text="{x:Static p:CreateBackupStrategyView.Title}" FontFamily="Montserrat" FontSize="17" Width="auto"/>
+        <TextBlock Margin="41,50,-21,496" Text="{x:Static p:CreateBackupStrategyView.Description}"  FontSize="15" Foreground="#FFD8D8D8"/>
+
+        <TextBlock Text="{x:Static p:CreateBackupStrategyView.LabelName}" FontSize="13" Margin="82,144,634,441"/>
+        <TextBox Name="newName" Margin="82,172,541,407"/>
+
+        <TextBlock Text="{x:Static p:CreateBackupStrategyView.LabelType}" Margin="82,251,570,328" FontSize="13"/>
+        <ComboBox Name="newType" ItemsSource="{Binding EnumNames}"
+                  SelectedItem="COMPLETE" Margin="82,287,560,295" Width="auto"/>
+
+        <TextBlock Text="{x:Static p:CreateBackupStrategyView.LabelSource}" Margin="82,367,576,215" FontSize="13"/>
+        <TextBox Name="newSource" Margin="82,391,560,186" IsEnabled="False" Text="{Binding SourceDirectory}"/>
+        <Button Content="{x:Static p:CreateBackupStrategyView.BrowseButton}" Margin="330,391,449,186" Background="#FFCB59B6" BorderBrush="Transparent" Width="auto" Click="SourceButton_Click" Height="Auto"/>
+
+        <TextBlock Text="{x:Static p:CreateBackupStrategyView.LabelTarget}" Margin="445,367,100,219" FontSize="13"/>
+        <TextBox Name="newTarget" Margin="445,391,184,186" IsEnabled="False" Text="{Binding TargetDirectory}"/>
+        <Button Content="{x:Static p:CreateBackupStrategyView.BrowseButton}" Margin="707,391,70,186" Background="#FFCB59B6" BorderBrush="Transparent" Width="auto" Click="TargetButton_Click" Height="Auto"/>
+
+        <Button Content="{x:Static p:CreateBackupStrategyView.CreateButton}" HorizontalAlignment="Left" Click="CreateButton_Click" Width="78" Margin="82,486,0,82" BorderBrush="Transparent" Height="Auto">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFF9D11F" Offset="0"/>
+                    <GradientStop Color="#FFB621FE" Offset="0.997"/>
+                    <GradientStop Color="#FFCB59B6" Offset="0.664"/>
+                    <GradientStop Color="#FFCB5AB4" Offset="0.312"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</UserControl>

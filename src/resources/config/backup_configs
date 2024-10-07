@@ -1,0 +1,68 @@
+{
+  "backupStrategies": [
+    {
+      "Id": 1,
+      "CreationDate": "08/12/2020 14:32:43",
+      "Name": "backup1",
+      "TypeOfSave": 0,
+      "SourceDirectory": "E:\\Demo\\backup1",
+      "TargetDirectory": "E:\\Demo\\backup1_finished"
+    },
+    {
+      "Id": 3,
+      "CreationDate": "08/12/2020 14:33:16",
+      "Name": "backup3",
+      "TypeOfSave": 0,
+      "SourceDirectory": "E:\\Demo\\backup3",
+      "TargetDirectory": "E:\\Demo\\backup3_finished"
+    },
+    {
+      "Id": 4,
+      "CreationDate": "14/12/2020 21:59:35",
+      "Name": "backup44",
+      "TypeOfSave": 0,
+      "SourceDirectory": "E:\\Demo\\backup4",
+      "TargetDirectory": "E:\\Demo\\backup4_finished"
+    },
+    {
+      "Id": 5,
+      "CreationDate": "08/12/2020 16:26:03",
+      "Name": "backup5",
+      "TypeOfSave": 1,
+      "SourceDirectory": "E:\\Demo\\backup5",
+      "TargetDirectory": "E:\\Demo\\backup5_finished"
+    },
+    {
+      "Id": 6,
+      "CreationDate": "18/12/2020 11:25:23",
+      "Name": "backup_modified",
+      "TypeOfSave": 0,
+      "SourceDirectory": "E:\\Demo\\backup2",
+      "TargetDirectory": "E:\\Demo\\backup2_finished"
+    },
+    {
+      "Id": 7,
+      "CreationDate": "15/12/2020 13:31:25",
+      "Name": "BU1",
+      "TypeOfSave": 0,
+      "SourceDirectory": "D:\\Program Files (x86)\\EdrawSoft\\MindMaster",
+      "TargetDirectory": "D:\\backup"
+    },
+    {
+      "Id": 8,
+      "CreationDate": "15/12/2020 13:32:37",
+      "Name": "BU2",
+      "TypeOfSave": 0,
+      "SourceDirectory": "D:\\Program Files (x86)\\Windscribe",
+      "TargetDirectory": "D:\\backup"
+    },
+    {
+      "Id": 10,
+      "CreationDate": "18/12/2020 11:25:54",
+      "Name": "backup_demo",
+      "TypeOfSave": 1,
+      "SourceDirectory": "E:\\Demo\\backup3",
+      "TargetDirectory": "E:\\Demo\\backup3_finished"
+    }
+  ]
+}
